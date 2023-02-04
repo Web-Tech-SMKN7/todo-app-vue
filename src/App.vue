@@ -24,6 +24,10 @@ function newTaskAction() {
   newTask.value = ''
 }
 
+function deleteTask(index) {
+  tasks.value.splice(index, 1)
+}
+
 onBeforeMount(() => {
   const json = localStorage.getItem('tasks')
   
@@ -78,7 +82,7 @@ watch(tasks, () => {
             >
               {{ task.title }}
             </label>
-            <div class="task__delete">Delete</div>
+            <div class="task__delete" @click="() => deleteTask(index)">Delete</div>
           </div>
         </div>
       </main>
@@ -86,6 +90,9 @@ watch(tasks, () => {
   </div>
 </template>
 
-<style scoped>
-
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
 </style>
