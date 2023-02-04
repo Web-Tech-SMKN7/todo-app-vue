@@ -1,0 +1,155 @@
+:root {
+  --primary: #755139;
+  --primary-alt: #61432f;
+  --primary-alt-2: #513827;
+  --secondary: #F2EDD7;
+}
+
+html {
+  font-family: 'Nunito', sans-serif;
+}
+
+body {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+.wrapper {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+#todo-app {
+  width: 100%;
+}
+
+header {
+  text-align: center;
+}
+
+#add-group {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  height: 50px;
+  border: 2px solid var(--primary);
+}
+
+#add-input {
+  all: unset;
+  padding: 0 1rem;
+  background-color: white;
+  color: var(--primary);
+}
+
+#add {
+  all: unset;
+  background-color: var(--primary);
+  color: var(--secondary);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#add:hover {
+  background-color: var(--primary-alt);
+  cursor: pointer;
+}
+
+#add:active {
+  background-color: var(--primary-alt-2);
+}
+
+.aggregate-group {
+  display: flex;
+  margin-top: 16px;
+}
+
+.aggregate-group > * {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.aggregate {
+  font-size: 1.5rem;
+}
+
+#task-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 1rem;
+  gap: 1rem 0;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background-color: var(--primary);
+  color: var(--secondary);
+  border: 2px solid var(--primary);
+}
+
+.task:hover {
+  background-color: var(--primary-alt);
+  cursor: pointer;
+}
+
+.task > * {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.task__title {
+  flex-grow: 1;
+  cursor: pointer;
+  
+  user-select: none;
+}
+
+.task__check {
+  appearance: none;
+  margin: 0;
+
+  display: grid;
+  place-items: center;
+
+  background-color: var(--secondary);
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: .5rem;
+}
+
+.task__check::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  transform: scale(0);
+  transition: 75ms transform ease-out;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  box-shadow: inset 1rem 1rem var(--primary);
+}
+
+.task__check:checked::before {
+  transform: scale(1);
+}
+
+.task__delete {
+  color: var(--primary);
+  background-color: var(--secondary);
+  padding: 0 .5rem;
+}
+
+.task__delete:hover {
+  background-color: white;
+}
+
+.separator {
+  margin-top: 1rem;
+  height: 30px;
+}
